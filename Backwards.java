@@ -14,6 +14,8 @@ public class Backwards {
         listName.add("Pest");
 
         System.out.println(listName);
+        String element = listName.get(2);
+        System.out.println(element);
         //System.out.println(indexOf(listName));
 
         // prints index in reverse *need contents of index to print instead*
