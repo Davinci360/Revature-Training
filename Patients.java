@@ -3,7 +3,7 @@ public class Patients {
     private int age;
     private boolean vax;
 
-    public boolean boost;
+   private boolean boost;
 
     //setter {method}
     public void setName(String newName) { //void bc nothing to return just set
