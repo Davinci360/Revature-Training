@@ -52,7 +52,9 @@ select "BillingAddress"  from "Invoice" i WHERE "BillingAddress"  LIKE 'a%'; --S
  update "Customer" set "FirstName" = 'Robert',"LastName" = 'Walter' where "CustomerId" = 32;
 select * from "Customer" c where "CustomerId" = 32; --SUCCESFUL
 --Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
-select * from "Artist" a where "Name" = “Creedence Clearwater Revival”;--ERROR: syntax error at or near "Clearwater"
-select * from "Artist" a where "Name" = “Creedence%”;-- ERROR: column "“creedence" does not exist
-  Position: 88
+select * from "Artist" a where "Name" = 'Creedence Clearwater Revival';--ID 76
+select * from "Artist" a where "Name" like  'Creedence%';
+update "Artist" set "Name" = 'CCR' where "Name" = 'Creedence Clearwater Revival';
+select "Name"  from "Artist" a where "ArtistId" =76;--SUCCESFUL
+  
 --Save all of your queries/commands in an sql file and push it to your exercise repo.
