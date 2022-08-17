@@ -25,8 +25,7 @@ select "FirstName"  from "Customer" c order by "FirstName"  asc;--??Whats with t
 --General Structure: select <columns> from <table> where <condition>
 
 --Select all invoices with a billing address like “T%”
-select "BillingAddress"  from "Invoice" i WHERE "BillingAddress"  LIKE 'a%'; --SQL Error [42703]: ERROR: column "t%" does not exist
-  Position: 197
+select "BillingAddress"  from "Invoice" i WHERE "BillingAddress"  LIKE 'T%'; 
   
 --Select all invoices that have a total between 15 and 50
   --BETWEEN Syntax
@@ -38,11 +37,25 @@ select "BillingAddress"  from "Invoice" i WHERE "BillingAddress"  LIKE 'a%'; --S
 --Insert practice
  --SYNTAX: INSERT INTO Customers (CustomerName, City, Country) VALUES ('Cardinal', 'Stavanger', 'Norway');
 --Insert two new records into Genre table
- insert into "Genre" ("GenreId","Name") values (seq_person.nextval,'funk'); --??NEED HELP w this
- 
+ insert into "Genre" ("GenreId","Name") values (26,'funk'); --??NEED HELP w this 
+  insert into "Genre" ("GenreId","Name") values (27,'JayBass');
 --Insert two new records into Employee table
+INSERT INTO public."Employee"
+("EmployeeId", "LastName", "FirstName" )
+VALUES(9, 'Brown', 'Jason');
+
+INSERT INTO public."Employee"
+("EmployeeId", "LastName", "FirstName" )
+VALUES(10, 'brown', 'James');
+
 --Insert two new records into Customer table
- 
+ INSERT INTO public."Customer"
+("CustomerId", "LastName", "FirstName","Email"  )
+VALUES(60, 'brown', 'James','jb@mail.com');
+
+ INSERT INTO public."Customer"
+("CustomerId", "LastName", "FirstName","Email"  )
+VALUES(61, 'Irving', 'James','Irv@mail.com');
 --Update Practice
  --UPDATE Syntax
  	--UPDATE table_name SET column1 = value1, column2 = value2, ...WHERE condition;
