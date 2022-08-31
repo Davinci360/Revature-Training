@@ -1,0 +1,69 @@
+@startuml
+class ${IJ_BASE_PACKAGE}.entity.Pet {
+- int id
+- String name
+- String species
+- String food
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ String getSpecies()
++ void setSpecies(String)
++ String getFood()
++ void setFood(String)
++ String toString()
+}
+class ${IJ_BASE_PACKAGE}.controller.PetCommandLineInterface {
++ {static} void menu()
++ {static} void printOptions()
+}
+interface ${IJ_BASE_PACKAGE}.data.PetDao {
++ Pet insert(Pet)
++ Pet getById(int)
++ List<Pet> getAllPets()
++ Pet update(Pet)
++ boolean delete(int)
+}
+class ${IJ_BASE_PACKAGE}.App {
++ {static} void main(String[])
+}
+class ${IJ_BASE_PACKAGE}.service.PetService {
++ Pet insert(Pet)
++ Pet getById(int)
++ List<Pet> getAllPets()
++ Pet updatePet(Pet)
++ boolean deletePet(int)
+}
+class ${IJ_BASE_PACKAGE}.data.PetDaoTempImpl {
++ Pet insert(Pet)
++ Pet getById(int)
++ List<Pet> getAllPets()
++ Pet update(Pet)
++ boolean delete(int)
+}
+class ${IJ_BASE_PACKAGE}.data.ConnectionFactory {
+- {static} Connection connection
+~ {static} Connection getConnection()
+}
+class ${IJ_BASE_PACKAGE}.controller.PetController {
+}
+class ${IJ_BASE_PACKAGE}.data.PetDaoImpl {
+~ Connection connection
++ Pet insert(Pet)
++ Pet getById(int)
++ List<Pet> getAllPets()
++ Pet update(Pet)
++ boolean delete(int)
+}
+class ${IJ_BASE_PACKAGE}.exception.PetException {
+}
+class ${IJ_BASE_PACKAGE}.data.DaoFactory {
+- {static} PetDao petDao
++ {static} PetDao getPetDao()
+}
+
+
+${IJ_BASE_PACKAGE}.data.PetDao <|.. ${IJ_BASE_PACKAGE}.data.PetDaoTempImpl
+${IJ_BASE_PACKAGE}.data.PetDao <|.. ${IJ_BASE_PACKAGE}.data.PetDaoImpl
+@enduml
