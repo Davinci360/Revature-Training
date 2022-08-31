@@ -24,6 +24,16 @@ public interface PetDao {
     // and some pet data which is the new information that we are persisting
     public Pet update(Pet pet);
 
+    // only update a certain field/column:
+//    public Pet updateFood(int id, String food) {
+//        String sql = "update pet set food = ? where id = ?;";
+//        PreparedStatement preparedStatement = connection.prepareStatement();
+//        preparedStatement.setString(food);
+//        preparedStatement.setInt(2, id);
+//
+//    }
+    Pet updateOnly(Pet pet);
+
     // Delete - delete an item from the database:
     // return whether the deletion was successful
     // pass in an id to identify which pet is going to be deleted

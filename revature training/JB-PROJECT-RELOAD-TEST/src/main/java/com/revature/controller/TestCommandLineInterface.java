@@ -71,6 +71,17 @@ public class TestCommandLineInterface {
 //                case 6:
 //                    System.out.println("Enter id=>");
 //                    System.out.println("Enter food =>");
+                case 6:
+                    System.out.println("Enter pet information");
+                    System.out.print("Pet Id => ");
+                    id = intScanner.nextInt();
+
+                    System.out.print("Pet Food => ");
+                    food = stringScanner.nextLine();
+                    Pet pet1 = new Pet(id,food);
+                    System.out.println(petService.updatePet(pet1));
+                    break;
+
                 default:
                     System.out.println("Not a valid option.");
                     break;
@@ -88,6 +99,7 @@ public class TestCommandLineInterface {
         System.out.println("3 - Get all pets");
         System.out.println("4 - Update pet");
         System.out.println("5 - Delete pet");
+        System.out.println("6 - Update only");
         System.out.print("Enter => ");
     }
 }

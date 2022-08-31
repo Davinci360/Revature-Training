@@ -1,10 +1,7 @@
 package com.revature.data;
 
 import com.revature.entity.Pet;
-import org.slf4j.LoggerFactory;
 
-import java.io.InputStream;
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -204,6 +201,38 @@ public class PetDaoImpl implements PetDao{
 //        preparedStatement.setInt(2, id);
 //
 //    }
+    @Override
+    public Pet updateOnly(Pet pet) {
+        String sql = "update pet set food = ? where id = ?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(3, pet.getFood());
+            preparedStatement.setInt(4, pet.getId());
+
+            int count = preparedStatement.executeUpdate(); // DML, we use executeUpdate instead of executeQuery
+
+            if(count == 1) {
+                System.out.println("Update successful!");
+                return pet;
+            }
+            else {
+                System.out.println("Something went wrong with the update");
+                if(count == 0) {
+                    System.out.println("No rows were affected");
+                }
+                else {
+                    System.out.println("Many rows were affected");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // return null
+        return null;
+    }
+
 
 
     // return a boolean of whather the deletion was successful:

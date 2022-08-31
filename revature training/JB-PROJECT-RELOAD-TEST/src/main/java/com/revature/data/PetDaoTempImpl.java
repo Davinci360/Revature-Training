@@ -8,7 +8,7 @@ import java.util.List;
 // this is a temporary implementation of the Pet Dao before we get our database set up
 // A lot of these methods are going to give out dummy data
 // ctrl-i to generate implemented methods
-public class PetDaoTempImpl implements PetDao {
+public abstract class PetDaoTempImpl implements PetDao {
 
     @Override
     public Pet insert(Pet pet) {
@@ -48,6 +48,11 @@ public class PetDaoTempImpl implements PetDao {
          */
         // in the "real" implementation, we will update the database:
         System.out.println("Updated pet: " + pet.toString());
+        return pet;
+    }
+
+    @Override
+    public Pet updateOnly(Pet pet) {
         return pet;
     }
 

@@ -107,6 +107,9 @@ public class PetServlet extends HttpServlet{
         // instead of inserting an entirely new pet, we are going to update it
         pet = petService.updatePet(pet);
         out.println(pet);
+
+        pet = petService.updateOnly(pet);
+        out.println(pet);
     }
 
     @Override

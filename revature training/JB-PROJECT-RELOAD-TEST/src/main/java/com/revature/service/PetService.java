@@ -33,6 +33,10 @@ public class PetService {
         PetDao petDao = DaoFactory.getPetDao();
         return petDao.update(pet);
     }
+    public Pet updateOnly(Pet pet) {
+        PetDao petDao = DaoFactory.getPetDao();
+        return petDao.updateOnly(pet);
+    }
 
     public boolean deletePet(int id) {
         PetDao petDao = DaoFactory.getPetDao();
