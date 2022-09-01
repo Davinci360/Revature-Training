@@ -1,5 +1,6 @@
 package com.revature.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.revature.entity.Employee;
 import com.revature.entity.Ticket;
 import com.revature.service.EmployeeService;
@@ -94,6 +95,21 @@ public class EmployeeCommandLineInterface {
                     }
 
                     break;
+//-----------NEW TICKET-------------------------
+                case 5:
+                    System.out.println("Enter ticket information");
+                    System.out.print("Ticket Amount => ");
+                    double amount = intScanner.nextDouble();
+                    System.out.print("Ticket Description => ");
+                    String description = stringScanner.nextLine();
+                    System.out.print("Ticket Status => ");
+                    String status = stringScanner.nextLine();
+                    System.out.print("Ticket User_id => ");
+                    int user_id = intScanner.nextInt();
+
+                    Ticket newTicket = new Ticket(amount, description, status, user_id);
+                    System.out.println(ticketService.insert(newTicket));
+                    break;
             }
 
         }
@@ -105,6 +121,7 @@ public class EmployeeCommandLineInterface {
         System.out.println("2 - Login");
         System.out.println("3 - Claim");
         System.out.println("4 - View My Tickets");
+        System.out.println("5 - Create Ticket");
         System.out.print("Enter => ");
     }
 }

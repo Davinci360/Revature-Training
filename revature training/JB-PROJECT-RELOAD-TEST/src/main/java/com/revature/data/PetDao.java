@@ -24,7 +24,7 @@ public interface PetDao {
     // and some pet data which is the new information that we are persisting
     public Pet update(Pet pet);
 
-    // only update a certain field/column:
+    // only update a certain field/column:@TODO Need this to change ticket status
 //    public Pet updateFood(int id, String food) {
 //        String sql = "update pet set food = ? where id = ?;";
 //        PreparedStatement preparedStatement = connection.prepareStatement();
@@ -41,5 +41,5 @@ public interface PetDao {
 
     public boolean adopt(int personId, int petId);
 
-    public List<Pet> getAdoptedPets(int personId);
+    public List<Pet> getAdoptedPets(int personId); //@TODO Need  this to filter tickets by status
 }
