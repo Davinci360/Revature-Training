@@ -5,10 +5,9 @@ import com.revature.entity.Ticket;
 import com.revature.service.EmployeeService;
 import com.revature.service.TicketService;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class ManagerCommandLineInterface {
+public class ManagerCommandLineInterface extends TicketCommandLineInterface {
     public static void menu() {
         EmployeeService employeeService = new EmployeeService();
         TicketService ticketService = new TicketService();
@@ -57,46 +56,10 @@ public class ManagerCommandLineInterface {
                     }
                     break;
 
-                case 3:
-                    if (employee == null) {
-                        System.out.println("You must be logged in to claim a ticket!");
-                        break;
-                    }
-
-                    System.out.println("Available tickets:");
-                    for(Ticket ticket : ticketService.getAllTickets()) {
-                        System.out.println(ticket.toString());
-                    }
-
-                    // if we've made it here, that means we are logged in and have an id:
-                    System.out.print("Enter the id of the ticket you would like to claim:");
-                    int ticketId = intScanner.nextInt();
-                    boolean success = employeeService.claim(employee.getId(), ticketId);
-                    if (success) {
-                        System.out.println("Claim successful!");
-                    }
-                    else {
-                        System.out.println("Something went wrong with the claim.");
-                    }
-                    break;
-                case 4:
-                    if (employee == null) {
-                        System.out.println("Please log in first");
-                        break;
-                    }
-
-
-                    List<Ticket> tickets = employeeService.getClaimedTickets(employee.getId());
-
-                    System.out.println("Here are your claimed tickets:");
-                    for(Ticket ticket : tickets) {
-                        System.out.println(ticket);
-                    }
-
-                    break;
-//-----------NEW TICKET-------------------------
-                case 5:
+                case 3: //UPDATE TICKET@TODO Reslove Errors to create a Update Ticket Status Case
                     System.out.println("Enter ticket information");
+                    System.out.print("Ticket Id => ");
+                    id = intScanner.nextInt();
                     System.out.print("Ticket Amount => ");
                     double amount = intScanner.nextDouble();
                     System.out.print("Ticket Description => ");
@@ -105,10 +68,12 @@ public class ManagerCommandLineInterface {
                     String status = stringScanner.nextLine();
                     System.out.print("Ticket User_id => ");
                     int user_id = intScanner.nextInt();
-
-                    Ticket newTicket = new Ticket(amount, description, status, user_id);
-                    System.out.println(ticketService.insert(newTicket));
+                    Ticket ticket = new Ticket(id, amount, description, status, user_id);
+                    System.out.println(ticketService.updateTicket(ticket));
                     break;
+
+
+
             }
 
         }
@@ -118,11 +83,8 @@ public class ManagerCommandLineInterface {
         System.out.println("What would you like to do?");
         System.out.println("1 - Register");
         System.out.println("2 - Login");
-/*
-        System.out.println("3 - Claim");
-        System.out.println("4 - View My Tickets");
-        System.out.println("5 - Create Ticket");
-*/
+        System.out.println("3 - Process Tickets");
+
         System.out.print("Enter => ");
     }
 }
