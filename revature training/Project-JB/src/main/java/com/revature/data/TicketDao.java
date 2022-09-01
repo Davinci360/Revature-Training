@@ -10,7 +10,7 @@ import java.util.List;
 public interface TicketDao {
     // CRUD
     // Create - inserting a ticket into the database
-    // the reason we return the ticket is so we can keep track of the id:
+    // the reason we return the ticket is so that we can keep track of the id:
     public Ticket insert(Ticket ticket);
 
     // Read - getting/reading data from the database

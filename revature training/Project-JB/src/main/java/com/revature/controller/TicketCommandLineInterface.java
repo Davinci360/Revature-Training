@@ -37,14 +37,14 @@ public class TicketCommandLineInterface {
                     System.out.println(ticketService.insert(newTicket));
                     break;
                 case 2:
-                    System.out.print("Enter in an id: ");
+                    System.out.print("Enter a User id: ");
                     int id = intScanner.nextInt();
                     System.out.println(ticketService.getById(id));
                     break;
                 case 3:
                     List<Ticket> tickets = ticketService.getAllTickets();
-                    for(int i = 0; i < tickets.size(); i ++) {
-                        System.out.println(tickets.get(i));
+                    for (Ticket value : tickets) {
+                        System.out.println(value);
                     }
                     break;
                 case 4: //UPDATE TICKET
