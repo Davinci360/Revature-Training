@@ -27,7 +27,11 @@ public class TicketService {
         return ticketDao.getAllTickets();
     }
 
-    public Ticket updateTicket(Ticket ticket) {
+/*    public Ticket updateTicket(Ticket ticket) {
+        TicketDao ticketDao = DaoFactory.getTicketDao();
+        return ticketDao.update(ticket);
+    }*/
+    public Ticket updateStatus(Ticket ticket) {
         TicketDao ticketDao = DaoFactory.getTicketDao();
         return ticketDao.update(ticket);
     }

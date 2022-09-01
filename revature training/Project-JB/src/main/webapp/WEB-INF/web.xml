@@ -6,10 +6,10 @@
   <display-name>Archetype Created Web Application</display-name>
 
 
-
+  <!-- Ticket -->
 <servlet>
   <servlet-name>tickets</servlet-name>
-  <servlet-class>com.revature.controller.PetServlet</servlet-class>
+  <servlet-class>com.revature.controller.TicketServlet</servlet-class>
 </servlet>
   <servlet-mapping>
     <servlet-name>tickets</servlet-name>
@@ -17,5 +17,27 @@
     <url-pattern>/tickets/*</url-pattern>
   </servlet-mapping>
 
+  <!-- EMPLOYEE SERVLET -->
+  <servlet>
+    <servlet-name>employee</servlet-name>
+    <servlet-class>com.revature.controller.EmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employee</servlet-name>
+    <!-- we include the * meaning anything can come after this -->
+    <url-pattern>/employee/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- MANAGER SERVLET -->
+
+  <servlet>
+    <servlet-name>manager</servlet-name>
+    <servlet-class>com.revature.controller.ManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>manager</servlet-name>
+    <!-- we include the * meaning anything can come after this -->
+    <url-pattern>/manager/*</url-pattern>
+  </servlet-mapping>
 
 </web-app>

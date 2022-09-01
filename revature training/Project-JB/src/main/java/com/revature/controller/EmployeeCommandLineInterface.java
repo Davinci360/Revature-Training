@@ -1,6 +1,5 @@
 package com.revature.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.revature.entity.Employee;
 import com.revature.entity.Ticket;
 import com.revature.service.EmployeeService;

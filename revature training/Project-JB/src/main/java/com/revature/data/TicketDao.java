@@ -24,6 +24,8 @@ public interface TicketDao {
     // and some ticket data which is the new information that we are persisting
     public Ticket update(Ticket ticket);
 
+    public Ticket updateStatus(Ticket ticket);
+
     // Delete - delete an item from the database:
     // return whether the deletion was successful
     // pass in an id to identify which ticket is going to be deleted

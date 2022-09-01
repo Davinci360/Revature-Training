@@ -165,13 +165,46 @@ public class TicketDaoImpl implements TicketDao{
     @Override
     public Ticket update(Ticket ticket) {
         //        String sql = "insert into ticket(id, amount, description, status, user_id) values (default, ?, ?, ?,?);";
-        String sql = "update ticket set amount = ?, description = ?, status = ? where id = ?;";
+        String sql = "update ticket status = ?, where id = ?;";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDouble(1, ticket.getAmount());
-            preparedStatement.setString(2, ticket.getDescription());
-            preparedStatement.setString(3, ticket.getStatus());
-            preparedStatement.setInt(4, ticket.getId());
+
+            preparedStatement.setString(1, ticket.getStatus());
+            preparedStatement.setInt(2, ticket.getId());
+
+            //preparedStatement.setInt(4, ticket.getUser_id());
+
+            int count = preparedStatement.executeUpdate(); // DML, we use executeUpdate instead of executeQuery
+
+            if(count == 1) {
+                System.out.println("Update successful!");
+                return ticket;
+            }
+            else {
+                System.out.println("Something went wrong with the update");
+                if(count == 0) {
+                    System.out.println("No rows were affected");
+                }
+                else {
+                    System.out.println("Many rows were affected");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // return null
+        return null;
+    }
+    @Override
+    public Ticket updateStatus(Ticket ticket) {
+        //        String sql = "insert into ticket(id, amount, description, status, user_id) values (default, ?, ?, ?,?);";
+        //  String sql = "update pet set name = ?, species = ?, food = ? where id = ?;";
+        String sql = "update ticket set status = ?, where id = ?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ticket.getStatus());
+            preparedStatement.setInt(2, ticket.getId());
 
             //preparedStatement.setInt(4, ticket.getUser_id());
 
@@ -251,7 +284,7 @@ public class TicketDaoImpl implements TicketDao{
     // given an employee id, return a list of tickets that they've claimed
     @Override
     public List<Ticket> getClaimedTickets(int employeeId) {
-        String sql = "select * from ticket where user_id = ?;";
+        String sql = "select * from ticket where user_id = ?;";//@TODO Use this to filter results where status = X
         List<Ticket> tickets = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

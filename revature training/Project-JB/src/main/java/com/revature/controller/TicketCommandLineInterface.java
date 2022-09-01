@@ -60,7 +60,7 @@ public class TicketCommandLineInterface {
                     System.out.print("Ticket User_id => ");
                     user_id = intScanner.nextInt();
                     Ticket ticket = new Ticket(id, amount, description, status, user_id);
-                    System.out.println(ticketService.updateTicket(ticket));
+                    System.out.println(ticketService.updateStatus(ticket));
                     break;
 /*                case 5:
                     System.out.println("Enter in id to delete");

@@ -34,6 +34,10 @@ public class EmployeeService {
         // if passwords don't match, return null, indicating that the password is incorrect
         return null;
     }
+    public List<Employee> getAllUsers(int userID){
+        EmployeeDao userDao = DaoFactory.getEmployeeDao();
+        return userDao.getAllUsers();
+    }
 
 
 
@@ -51,4 +55,9 @@ public class EmployeeService {
         return ticketDao.getClaimedTickets(employeeId);
     }
 
+    public Employee update(Employee employee) {
+        EmployeeDao userDao = DaoFactory.getEmployeeDao();
+            return userDao.update(employee);
+
+    }
 }

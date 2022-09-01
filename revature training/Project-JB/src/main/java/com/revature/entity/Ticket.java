@@ -10,7 +10,7 @@ public class Ticket {
     private int user_id;
 
     // default constructor:
-    public Ticket() {
+    public Ticket(int id, String status) {
 
     }
 

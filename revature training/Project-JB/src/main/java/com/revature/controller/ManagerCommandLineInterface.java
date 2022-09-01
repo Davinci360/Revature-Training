@@ -56,20 +56,20 @@ public class ManagerCommandLineInterface extends TicketCommandLineInterface {
                     }
                     break;
 
-                case 3: //UPDATE TICKET@TODO Reslove Errors to create a Update Ticket Status Case
+                case 3: //UPDATE TICKET@TODO Make it so can ONLY updateTicket Status
                     System.out.println("Enter ticket information");
                     System.out.print("Ticket Id => ");
                     id = intScanner.nextInt();
-                    System.out.print("Ticket Amount => ");
-                    double amount = intScanner.nextDouble();
-                    System.out.print("Ticket Description => ");
-                    String description = stringScanner.nextLine();
+                    //System.out.print("Ticket Amount => ");
+                    //double amount = intScanner.nextDouble();
+                    //System.out.print("Ticket Description => ");
+                    //String description = stringScanner.nextLine();
                     System.out.print("Ticket Status => ");
                     String status = stringScanner.nextLine();
-                    System.out.print("Ticket User_id => ");
-                    int user_id = intScanner.nextInt();
-                    Ticket ticket = new Ticket(id, amount, description, status, user_id);
-                    System.out.println(ticketService.updateTicket(ticket));
+                    //System.out.print("Ticket User_id => ");
+                    //int user_id = intScanner.nextInt();
+                    Ticket ticket = new Ticket(id, /*amount, description, */status/*, user_id*/);
+                    System.out.println(ticketService.updateStatus(ticket));
                     break;
 
 
