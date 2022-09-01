@@ -233,7 +233,7 @@ public class TicketDaoImpl implements TicketDao{
     @Override
     public boolean claim(int employeeId, int ticketId) {
         // TODO check if id is null
-        String sql = "update ticket set owner_id = ? where id = ?;";
+        String sql = "update ticket set user_id = ? where id = ?;";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, employeeId);
