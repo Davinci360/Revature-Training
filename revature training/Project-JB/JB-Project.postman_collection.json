@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "4c740bd7-330b-4038-bf7d-07ef40d80c2e",
+		"name": "JB-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22995713"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/employee?auth=login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"employee"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "login"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"jay\",\r\n    \"password\": \"jay123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/employee?auth=register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"employee"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "register"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "create tickets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": \"2,000\",\r\n    \"description\": \"laptop\",\r\n    \"status\": \"approved\",\r\n    \"user_id\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/ticket?auth=create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"ticket"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "create",
+									"description": "new ticket maker"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/ticket?auth=list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"ticket"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "list",
+									"description": "get all tickets"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Process Tickets",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"1\",\r\n    \"status\" : \"approved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/ticketauth=process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"ticketauth=process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create tickets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": \"2,000\",\r\n    \"description\": \"laptop\",\r\n    \"status\": \"approved\",\r\n    \"user_id\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Project-JB/ticket?auth=createtickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Project-JB",
+								"ticket"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "createtickets",
+									"description": "new ticket maker"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
